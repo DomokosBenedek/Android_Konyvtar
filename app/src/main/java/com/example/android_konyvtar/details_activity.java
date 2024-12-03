@@ -34,8 +34,6 @@ public class details_activity extends AppCompatActivity {
         backbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(details_activity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
