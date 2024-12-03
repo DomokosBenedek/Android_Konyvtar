@@ -1,6 +1,8 @@
 package com.example.android_konyvtar;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,12 +50,24 @@ public class bookAdapter extends BaseAdapter {
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                books.remove(i);
-                notifyDataSetChanged();
-                Toast.makeText(context,
-                        "Deleted",
-                        Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Törlés");
+                builder.setMessage("Biztos törölni szeretné a könyvet?");
+                builder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        books.remove(i);
+                        notifyDataSetChanged();
+                        Toast.makeText(context,
+                                "Deleted",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("Nem", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
 

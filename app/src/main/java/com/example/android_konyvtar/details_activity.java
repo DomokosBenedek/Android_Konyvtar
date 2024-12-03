@@ -53,7 +53,8 @@ public class details_activity extends AppCompatActivity {
         cim.setText("Cím: "+intent.getStringExtra("booktitle"));
         szerzo.setText("Szerő "+intent.getStringExtra("bookauthor"));
         oldalszam.setText("Oldalok száma: "+intent.getIntExtra("bookpages",0));
-        evszam.setText("egy random év:"+rand.nextInt(2024));
+        int randomYear = rand.nextInt(2024 - 1500 + 1) + 1500;
+        evszam.setText("Megjelenés évszáma:"+rand.nextInt(randomYear));
     }
 
 
