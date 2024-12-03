@@ -40,7 +40,6 @@ public class details_activity extends AppCompatActivity {
     }
 
     public void init(){
-        Random rand = new Random();
         backbutton=findViewById(R.id.backButton);
         cim=findViewById(R.id.cim);
         szerzo=findViewById(R.id.szerzo);
@@ -51,8 +50,7 @@ public class details_activity extends AppCompatActivity {
         cim.setText("Cím: "+intent.getStringExtra("booktitle"));
         szerzo.setText("Szerő "+intent.getStringExtra("bookauthor"));
         oldalszam.setText("Oldalok száma: "+intent.getIntExtra("bookpages",0));
-        int randomYear = rand.nextInt(2024 - 1500 + 1) + 1500;
-        evszam.setText("Megjelenés évszáma:"+rand.nextInt(randomYear));
+        evszam.setText("Megjelenés évszáma:"+intent.getIntExtra("bookyear",0));
     }
 
 

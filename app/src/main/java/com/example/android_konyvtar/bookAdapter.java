@@ -78,6 +78,7 @@ public class bookAdapter extends BaseAdapter {
                 intent.putExtra("booktitle", books.get(i).getTitle());
                 intent.putExtra("bookauthor", books.get(i).getAuthor());
                 intent.putExtra("bookpages", books.get(i).getPages());
+                intent.putExtra("bookyear", books.get(i).getYear());
                 context.startActivity(intent);
             }
         });
